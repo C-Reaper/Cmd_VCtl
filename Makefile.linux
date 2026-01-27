@@ -3,12 +3,11 @@
 CC = gcc
 CFLAGS = -O0 -mavx2 -std=gnu17
 INCLUDES = -Isrc
-LDFLAGS = -lm -lcurl
+LDFLAGS = -lm
 SRC_DIR = src
 BUILD_DIR = build
 
 TARGET = $(BUILD_DIR)/Main
-PM = $(BUILD_DIR)/PackageManager
 
 all:
 	$(CC) $(CFLAGS) $(INCLUDES) $(SRC_DIR)/Main.c -o $(TARGET) $(LDFLAGS)
@@ -24,10 +23,6 @@ debug:
 
 exe:
 	./$(TARGET)
-
-pm:
-	$(CC) $(CFLAGS) $(INCLUDES) $(SRC_DIR)/PackageManager.c -o $(PM) $(LDFLAGS)
-	./$(PM)
 
 clean:
 	rm -rf $(BUILD_DIR)/*

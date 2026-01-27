@@ -1,13 +1,23 @@
-#include "../inc/Container/Array.h"
-#include "../inc/Library/AffineTransform.h"
+#include "/home/codeleaded/System/Static/Library/VCtl.h"
 
 int main(int argc,char **argv){
-    AffineTransform at = AffineTransform_New();
-    AffineTransform_Calc(&at,(Vec2){ 0.0f,0.0f });
+    VCtl vc = VCtl_New(".",".vcignore");
+    
+    //VCtl_Init(&vc);
+    VCtl_ReadAnchor(&vc);
 
-    Array a = Array_New(10,sizeof(int));
-    Array_Set(&a,(int[]){ 0 },0);
-    Array_Print(&a);
-    Array_Free(&a);
+    VCtl_MakeBranch(&vc,"root","main","main got added!");
+    VCtl_UpdateBranch(&vc,"main","main got updated!");
+
+    VCtl_MakeBranch(&vc,"main","master","master got added!");
+    VCtl_UpdateBranch(&vc,"main","feature 1 got added!");
+
+    VCtl_UpdateBranch(&vc,"main","feature 2 got added!");
+    VCtl_UpdateBranch(&vc,"master","feature 1 got added!");
+
+    VCtl_WriteBranches(&vc);
+    
+    VCtl_Print(&vc);
+    VCtl_Free(&vc);
     return 0;
 }
