@@ -1,21 +1,17 @@
 #include "/home/codeleaded/System/Static/Library/VCtl.h"
 
 int main(int argc,char **argv){
-    VCtl vc = VCtl_New(".",".vcignore");
+    VCtl vc = VCtl_New("vc","vc/.vcignore");
     
     //VCtl_Init(&vc);
-    VCtl_ReadAnchor(&vc);
+    //Files_Create("vc/src/Header0.h");
+    //VCtl_MakeBranch(&vc,"root","main","main got added!");
+    //Files_Create("vc/src/Header1.h");
+    //VCtl_UpdateBranch(&vc,"main","main got updated!");
+    //VCtl_WriteBranches(&vc);
 
-    VCtl_MakeBranch(&vc,"root","main","main got added!");
-    VCtl_UpdateBranch(&vc,"main","main got updated!");
-
-    VCtl_MakeBranch(&vc,"main","master","master got added!");
-    VCtl_UpdateBranch(&vc,"main","feature 1 got added!");
-
-    VCtl_UpdateBranch(&vc,"main","feature 2 got added!");
-    VCtl_UpdateBranch(&vc,"master","feature 1 got added!");
-
-    VCtl_WriteBranches(&vc);
+    VCtl_ReadBranches(&vc);
+    VCtl_BackBranch(&vc,"main");
     
     VCtl_Print(&vc);
     VCtl_Free(&vc);
