@@ -5,7 +5,10 @@ int main(int argc,char **argv){
     
     VCtl_Init(&vc);
     
-    VCtl_UpdateBranch(&vc,"root","root got updated!");
+    //Files_Create("vc/src/Header0.h");
+    VCtl_UpdateBranch(&vc,"root","root got updated 1!");
+    //Files_Create("vc/src/Header0.h");
+    VCtl_UpdateBranch(&vc,"root","root got updated 2!");
 
     //Files_Create("vc/src/Header0.h");
     //VCtl_MakeBranch(&vc,"root","main","main got added!");
