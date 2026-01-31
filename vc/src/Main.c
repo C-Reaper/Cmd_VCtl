@@ -1,4 +1,7 @@
 #include <stdio.h>
-int main(){
-	return 1;
+
+int main(void){
+    printf("Hello World\n");
+    printf("Test World\n");
+    return 0;
 }
