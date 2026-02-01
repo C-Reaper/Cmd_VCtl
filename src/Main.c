@@ -1,9 +1,10 @@
 #include "/home/codeleaded/System/Static/Library/VCtl.h"
 
 int main(int argc,char **argv){
-    char cmd[] = "back";
-    char branch[] = "root/root/root/root";
-    char msg[] = "header deleted!";
+    char cmd[] = "update";
+    char branch[] = "main";
+    char newbranch[] = "main";
+    char msg[] = "branch added!";
     
     // char text[] = "#include <stdio.h>\nint main(){\n\treturn 0;\n}";
     // Files_WriteT("vc/src/Main.c",text,sizeof(text) - 1);
@@ -17,6 +18,10 @@ int main(int argc,char **argv){
         VCtl_UpdateBranch(&vc,branch,msg);
     }else if(CStr_Cmp(cmd,"back")){
         VCtl_BackBranch(&vc,branch);
+    }else if(CStr_Cmp(cmd,"branch")){
+        VCtl_MakeBranch(&vc,branch,newbranch,msg);
+    }else if(CStr_Cmp(cmd,"merge")){
+        VCtl_MergeBranch(&vc,branch,newbranch,msg);
     }
 
     VCtl_WriteBranches(&vc);
